@@ -5,54 +5,56 @@ $(document).ready(function(){
         console.log("success");
     }).done(function(data) {
         console.log("another success message");
-        var messages = data.messages;
-        const messageArea = $('.message-area');
-
-        //display messages from JSON
-        messages.forEach(message => {
-            const messageEl = createMessage(message);
-            messageArea.append(messageEl);
-            messageArea.append('<br></br>');
-        })
-
-        //add text event listeners here
-        $('.input-area').submit((e) => {
-            e.preventDefault();
-            const data = {
-                id: messages.length + 1,
-                author: $('#user').val(),
-                content: $('#text-message').val(),
-                timestamp: (new Date).getTime(),
-                last_edited: (new Date).getTime(),
-            }
-            console.log('data', data)
-
-            // //write to JSON file or send to server
-            // $.post('/addMessage', data, function() {
-            //     console.log('sending message to server!');
-            // }).fail(function() {
-            //     console.error('error sending to server');
-            // });
-
-            //add to fake data
-            // messages.push(data);
-
-            //update messages in DOM
-            const newMessage = createMessage(data);
-            messageArea.append(newMessage);
-            messageArea.append('<br></br>');
-            //resets text area
-            $('#text-message').val('');
-        })
-
-
+        displayMessages(data);
     }).fail(function(err) {
-        console.log(err);
-        console.error("error");
+        console.error(err);
     }).always(function() {
         console.info("complete");
     });
+
+    // //for real data
+    // $.get('/getMessage', function(data) {
+    //     displayMessages(data);
+    // }).fail(function(err) {
+    //     console.error(err);
+    // })
 });
+
+const displayMessages = (data) => {
+    var messages = data.messages;
+    const messageArea = $('.message-area');
+
+    //display messages from server/JSON
+    messages.forEach(message => {
+        const messageEl = createMessage(message);
+        messageArea.append(messageEl);
+        messageArea.append('<br></br>');
+    })
+
+    //handle submit button
+    $('.input-area').submit((e) => {
+        e.preventDefault();
+        const data = {
+            author: $('#user').val(),
+            content: $('#text-message').val(),
+            timestamp: (new Date).getTime(),
+            last_edited: (new Date).getTime(),
+        }
+    // //write to JSON file or send to server
+        // $.post('/addMessage', data, function() {
+        //     console.log('sending message to server!');
+        // }).fail(function() {
+        //     console.error('error sending to server');
+        // });
+
+        //update messages in DOM
+        const newMessage = createMessage(data);
+        messageArea.append(newMessage);
+        messageArea.append('<br></br>');
+        //resets text area
+        $('#text-message').val('');
+    })
+}
 
 const createMessage = (message) => {
     const element = document.createElement("div");
