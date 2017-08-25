@@ -1,6 +1,5 @@
-/* Stub JS file for your tinychat app! */
 $(document).ready(function(){
-    // Stub AJAX call that demos getting the fixture data
+    //route for fake JSON data
     $.getJSON('/fixtures/fakedata.json', function() {
         console.log("success");
     }).done(function(data) {
@@ -12,7 +11,7 @@ $(document).ready(function(){
         console.info("complete");
     });
 
-    // //for real data
+    //route for real data
     // $.get('/getMessage', function(data) {
     //     displayMessages(data);
     // }).fail(function(err) {
@@ -40,7 +39,7 @@ const displayMessages = (data) => {
             timestamp: (new Date).getTime(),
             last_edited: (new Date).getTime(),
         }
-    // //write to JSON file or send to server
+    //write to JSON file or send to server
         // $.post('/addMessage', data, function() {
         //     console.log('sending message to server!');
         // }).fail(function() {
@@ -50,7 +49,8 @@ const displayMessages = (data) => {
         //update messages in DOM
         const newMessage = createMessage(data);
         messageArea.append(newMessage);
-        messageArea.append('<br></br>');
+        // messageArea.append('<br></br>');
+
         //resets text area
         $('#text-message').val('');
     })
@@ -60,14 +60,18 @@ const createMessage = (message) => {
     const element = document.createElement("div");
     const fromEl = document.createElement("div");
     const timestampEl = document.createElement("div");
-    const messageEl = document.createElement("div");
+    const messageEl = document.createElement("p");
 
-    fromEl.innerHTML = message.author;
-    timestampEl.innerHTML = new Date(message.timestamp).toUTCString();
-    messageEl.innerHTML = message.content;
+    $(element).addClass('container-el');
+    $(fromEl).addClass('from-el')
+        .html(message.author)
+        .appendTo(element);
+    $(timestampEl).addClass('from-el')
+        .html(new Date(message.timestamp).toUTCString())
+        .appendTo(element);
+    $(messageEl).addClass('message-el')
+        .html(message.content)
+        .appendTo(element);
 
-    element.append(fromEl);
-    element.append(messageEl);
-    element.append(timestampEl);
     return element;
 }
