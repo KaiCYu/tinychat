@@ -4,3 +4,42 @@ body {
     background-color: snow;
     color: #333;
 }
+
+.message-area {
+    /*height: 600px;*/
+    /*background-color: green;*/
+    border: 1px solid black;
+    border-radius: 9px;
+    margin: 10px;
+    padding: 10px;
+}
+
+.container-el {
+    background-color: cornflowerblue;
+    border-radius: 9px;
+    color: black;
+    padding: 5px;
+    margin-top: 10px;
+}
+
+.from-el {
+    /*background-color: red;*/
+    font-style: italic;
+    font-size: 1em;
+    margin: 3px;
+}
+
+.message-el {
+    /*background-color: green;*/
+    margin: 3px;
+    /*font-size: 1.25em;*/
+}
+.timestamp-el {
+    /*background-color: white;*/
+    font-style: italic;
+    font-size: 1em;
+    margin: 3px;
+    /*display: inline;*/
+    /*float: right;*/
+    text-align: right;
+}

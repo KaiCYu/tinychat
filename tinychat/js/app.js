@@ -27,7 +27,6 @@ const displayMessages = (data) => {
     messages.forEach(message => {
         const messageEl = createMessage(message);
         messageArea.append(messageEl);
-        messageArea.append('<br></br>');
     })
 
     //handle submit button
@@ -39,7 +38,7 @@ const displayMessages = (data) => {
             timestamp: (new Date).getTime(),
             last_edited: (new Date).getTime(),
         }
-    //write to JSON file or send to server
+        //write to JSON file or send to server
         // $.post('/addMessage', data, function() {
         //     console.log('sending message to server!');
         // }).fail(function() {
@@ -62,16 +61,15 @@ const createMessage = (message) => {
     const timestampEl = document.createElement("div");
     const messageEl = document.createElement("p");
 
-    $(element).addClass('container-el');
-    $(fromEl).addClass('from-el')
+    $(element).addClass("container-el");
+    $(fromEl).addClass("from-el")
         .html(message.author)
         .appendTo(element);
-    $(timestampEl).addClass('from-el')
-        .html(new Date(message.timestamp).toUTCString())
-        .appendTo(element);
-    $(messageEl).addClass('message-el')
+    $(messageEl).addClass("message-el")
         .html(message.content)
         .appendTo(element);
-
+    $(timestampEl).addClass("timestamp-el")
+        .html(new Date(message.timestamp).toUTCString())
+        .appendTo(element);
     return element;
 }
