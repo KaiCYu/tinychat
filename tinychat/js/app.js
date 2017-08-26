@@ -12,7 +12,7 @@ $(document).ready(function(){
     });
 
     //route for real data
-    // $.get('/getMessage', function(data) {
+    // $.get('/message/get', function(data) {
     //     console.log('success');
     //     displayMessages(data);
     // }).fail(function(err) {
@@ -35,13 +35,13 @@ const displayMessages = (data) => {
     $('.input-area').submit((e) => {
         e.preventDefault();
         const data = {
-            author: $('#user').val() || 'anonymous',
-            content: $('#text-message').val(),
+            author: $('.username-input').val() || 'anonymous',
+            content: $('.text-message').val(),
             timestamp: (new Date).getTime(),
             last_edited: (new Date).getTime(),
         }
         //send to server
-        // $.post('/addMessage', data, function() {
+        // $.post('/message/post', data, function() {
         //     console.log('sending message to server!');
         // }).fail(function() {
         //     console.error('error sending to server');
@@ -54,7 +54,7 @@ const displayMessages = (data) => {
         //auto scrolls to bottom of the message area
         scrollMessagesToBottom();
         //resets text area
-        $('#text-message').val('');
+        $('.text-message').val('');
     })
 }
 

@@ -41,10 +41,10 @@ If your computer has Python installed, an easy way to get this frontend-only
 app up and running is to cd into this directory in your terminal window, then
 run:
 
-    python -m SimpleHTTPServer 8080 or
+    python -m SimpleHTTPServer 8000 or
     python3 -m http.server
 
 This will start a basic web server serving the contents of this directory on
-your machine. You can then see index.html at localhost:8080 or localhost:8000.
+your machine. You can then see index.html at localhost:8000.
 
 If you'd rather serve your app for development in a different way, go for it.

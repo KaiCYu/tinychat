@@ -1,5 +1,3 @@
-/* Stub CSS file for your tinychat app! */
-
 body {
     background-color: snow;
     color: #333;
@@ -8,15 +6,12 @@ body {
 .message-area {
     height: 550px;
     width: 60%;
-    /*background-color: green;*/
     border: 1px solid black;
     border-radius: 9px;
     margin: 10px;
     padding: 10px;
-    /*background-color:Gray;*/
     overflow-y: scroll;
 }
-
 .container-el {
     background-color: cornflowerblue;
     border-radius: 9px;
@@ -24,40 +19,23 @@ body {
     padding: 5px;
     margin-top: 10px;
 }
-
 .from-el {
-    /*background-color: red;*/
     font-style: italic;
     font-size: 1em;
     margin: 3px;
 }
-
 .message-el {
-    /*background-color: green;*/
     margin: 3px;
-    /*font-size: 1.25em;*/
 }
 .timestamp-el {
-    /*background-color: white;*/
     font-style: italic;
     font-size: 1em;
     margin: 3px;
-    /*display: inline;*/
-    /*float: right;*/
     text-align: right;
 }
-
-#text-message {
-    /*min-width:200px;
-    width:300px;
-    max-width:300px;
-    font-size:18px;
-    overflow-x:hidden;
-    overflow-y:auto;    
-    min-height:1.2em;
-    height:1.2em;
-    padding:2px;
-    max-height:5em;    
-    position:absolute;
-    left:0px;*/
+.input-area {
+    display: inline;
+}
+.text-message {
+    width: 30%;
 }
