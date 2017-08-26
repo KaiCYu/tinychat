@@ -28,9 +28,14 @@ working with you that includes a spec for what data and routes you want for the
 real version of the app to work. Be detailed about what your app needs. Include
 this spec with your code when you send it back.
 
+## Additional Features:
+
+* User can specify their name
+* Auto scroll to bottom of the message area after a user posts a new message.
+
+
 ## Optional possible additional features
 
-* A way to specify your name
 * A way to edit a message you previously sent
 * "Realtime"/checking for new messages from other users
 * Link detection

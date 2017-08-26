@@ -13,6 +13,7 @@ $(document).ready(function(){
 
     //route for real data
     // $.get('/getMessage', function(data) {
+    //     console.log('success');
     //     displayMessages(data);
     // }).fail(function(err) {
     //     console.error(err);
@@ -28,12 +29,13 @@ const displayMessages = (data) => {
         const messageEl = createMessage(message);
         messageArea.append(messageEl);
     })
+    scrollMessagesToBottom();
 
     //handle submit button
     $('.input-area').submit((e) => {
         e.preventDefault();
         const data = {
-            author: $('#user').val(),
+            author: $('#user').val() || 'anonymous',
             content: $('#text-message').val(),
             timestamp: (new Date).getTime(),
             last_edited: (new Date).getTime(),
@@ -48,10 +50,9 @@ const displayMessages = (data) => {
         //update messages in DOM
         const newMessage = createMessage(data);
         messageArea.append(newMessage);
-        
-        //auto scrolls to bottom of the message area
-        $('.message-area').scrollTop($(".message-area")[0].scrollHeight);
 
+        //auto scrolls to bottom of the message area
+        scrollMessagesToBottom();
         //resets text area
         $('#text-message').val('');
     })
@@ -74,4 +75,8 @@ const createMessage = (message) => {
         .html(new Date(message.timestamp).toUTCString())
         .appendTo(element);
     return element;
+}
+
+const scrollMessagesToBottom = () => {
+    $('.message-area').scrollTop($(".message-area")[0].scrollHeight);
 }
