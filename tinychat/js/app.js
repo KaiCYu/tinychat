@@ -38,7 +38,7 @@ const displayMessages = (data) => {
             timestamp: (new Date).getTime(),
             last_edited: (new Date).getTime(),
         }
-        //write to JSON file or send to server
+        //send to server
         // $.post('/addMessage', data, function() {
         //     console.log('sending message to server!');
         // }).fail(function() {
@@ -48,7 +48,6 @@ const displayMessages = (data) => {
         //update messages in DOM
         const newMessage = createMessage(data);
         messageArea.append(newMessage);
-        // messageArea.append('<br></br>');
 
         //resets text area
         $('#text-message').val('');
