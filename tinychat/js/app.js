@@ -48,6 +48,9 @@ const displayMessages = (data) => {
         //update messages in DOM
         const newMessage = createMessage(data);
         messageArea.append(newMessage);
+        
+        //auto scrolls to bottom of the message area
+        $('.message-area').scrollTop($(".message-area")[0].scrollHeight);
 
         //resets text area
         $('#text-message').val('');
